@@ -1,0 +1,2 @@
+year,total_return,annual_return,max_drawdown,sharpe,trades,long_trades,short_trades,exposure,abs_exposure,long_exposure,short_exposure,long_total_return,short_total_return,avg_bar_return_when_in_position
+2024,15.57067329098512,15.602569973300291,-0.2466217023382552,6.127944844274018,323,172,151,-0.03393077028321248,0.614037488028458,0.2900533588726228,0.3239841291558353,3.46884678020949,3.325564241109979,0.0006904448403780962

@@ -1,0 +1,2 @@
+mode,long_threshold,short_threshold,total_return,initial_capital,final_equity,profit,annual_return,max_drawdown,sharpe,trades,long_trades,short_trades,exposure,abs_exposure,long_exposure,short_exposure,long_total_return,short_total_return,avg_bar_return_when_in_position,score
+long_short,0.52,0.4,10591.964934567583,100.0,1059296.4934567583,1059196.4934567583,52.6504922734784,-0.3686637614322562,4.415088956405197,695,361,334,-0.3773467293253389,1.0230443472154702,0.11694484956517041,0.19121698266083292,31.49561993594068,769.022466124903,0.002010309026010861,52.68691484058253

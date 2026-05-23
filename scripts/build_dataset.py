@@ -63,6 +63,8 @@ def read_kline_dir(root: Path, symbol: str, prefix: str = "") -> pd.DataFrame:
         frames.append(df)
 
     df = pd.concat(frames, ignore_index=True)
+    df["open_time"] = pd.to_numeric(df["open_time"], errors="coerce")
+    df = df.dropna(subset=["open_time"])
     df["timestamp"] = pd.to_datetime(df["open_time"], unit="ms", utc=True)
 
     numeric_cols = [

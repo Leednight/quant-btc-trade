@@ -57,7 +57,7 @@ def has_existing_file(local_dir: Path, symbol: str, year: int, month: int, datas
         stem = f"{symbol}-fundingRate-{year}-{month:02d}"
     else:
         stem = f"{symbol}-1m-{year}-{month:02d}"
-    return any(local_dir.rglob(f"{stem}.*"))
+    return any(path.suffix != ".part" and not path.name.endswith(".part") for path in local_dir.rglob(f"{stem}.*"))
 
 
 def download_file(url: str, out_path: Path, retries: int, sleep_seconds: float) -> str:
@@ -79,7 +79,7 @@ def download_file(url: str, out_path: Path, retries: int, sleep_seconds: float) 
                 try:
                     os.replace(tmp_path, out_path)
                     break
-                except PermissionError:
+                except (FileNotFoundError, PermissionError):
                     if replace_attempt == 10:
                         raise
                     time.sleep(0.5)
@@ -90,7 +90,7 @@ def download_file(url: str, out_path: Path, retries: int, sleep_seconds: float) 
                     tmp_path.unlink()
                 return "missing"
             last_error = exc
-        except (URLError, TimeoutError, RuntimeError) as exc:
+        except (OSError, URLError, TimeoutError, RuntimeError) as exc:
             last_error = exc
 
         if attempt < retries:
